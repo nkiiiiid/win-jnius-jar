@@ -37,13 +37,15 @@ JDK_HOME=D:\Program Files (x86)\java
 
 下面代码保存到jnius-jar\com\test\JavaClass.java
 
-    //JavaClass.java
-    package com.test;
-    public class JavaClass{
-        public String javamet(){
-            return "from java world!";
-        }
+```java
+//JavaClass.java
+package com.test;
+public class JavaClass{
+    public String javamet(){
+        return "from java world!";
     }
+}
+```
 
 #### 生成class
 
@@ -57,12 +59,14 @@ JDK_HOME=D:\Program Files (x86)\java
 
 #### 在jnius-jar目录下使用下面的代码调用jar
 
-    import os
-    os.environ['CLASSPATH'] = ".\\javaclass.jar"
-    
-    from jnius import autoclass
-    javaclass = autoclass('com.test.JavaClass')
-    print javaclass().javamet()
+```python
+import os
+os.environ['CLASSPATH'] = ".\\javaclass.jar"
+
+from jnius import autoclass
+javaclass = autoclass('com.test.JavaClass')
+print javaclass().javamet()
+```
 
 因为在java调用jar里本来也是要设置classpath，这里如法炮制。
 
